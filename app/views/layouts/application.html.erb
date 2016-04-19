@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Projeto1</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class = "icone">
+    <div class="container header-logo-default">
+      <%= link_to image_tag("IC-Logo.png", alt: "Rails logo"), root_path%>
+    </div>
+  </div>
+      
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Salas<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Predio 1", predio1_path %></li>
+              <li><%= link_to "Predio 2",predio2_path%></li>
+            </ul>
+          </li>
+          <li><%= link_to "Equipamentos",equipamentos_path%></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Login",login_path%></li>
+          <li><%= link_to "Cadastro",cadastro_path%></li>
+        </ul>
+            <!--<form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Busque por sala ou equipamento">
+              </div>
+              <input type="checkbox" name="tipo-busca" value="sala">Sala                       <input type="checkbox" name="tipo-busca" value="equip">Projetor
+              <button type="submit" class="btn btn-default">Procurar</button>
+            </form>  -->
+        <form class="navbar-form navbar-right" role="search">
+    <!--      <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control" aria-label="...">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pesquisar por: <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                      <li><button type="submit" value="sala"class="btn btn-default btn-busca"> Sala </button></li>
+                      <li><button type="submit" value="projetor"class="btn btn-default btn-busca">Projetor</li>
+                    </ul>
+                </div>
+            </form>
+                  
+                </div><!-- /btn-group -->
+              </div><!-- /input-group --> 
+              Helena, fecha o console pra mim, pra eu ver uma coisa, pf.
+
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+  </div>
+  
+  <div class="container">
+    <%= yield %>
+  </div>
+  
+  <footer id = "footer">
+      <p><br><br> </p>
+  </footer>
+
+
+<script src="js/bootstrap.min.js"></script>
+   <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ 
+    
+    
+    <script src='projeto.js'></script>
+    -->
+</body>
+</html>

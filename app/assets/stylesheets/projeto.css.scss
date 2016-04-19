@@ -1,0 +1,86 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+*{
+	font-family: 'Roboto', sans-serif;
+}
+
+h1{
+	font-family: "Heutica Neue", Times, serif;
+}
+.icone{
+	background:url("/assets/fundo.jpg"); 
+}
+.btn-busca{
+	border-color: white;
+	padding: 0px 35px 0px 40px;
+
+}
+.btn-busca:hover{
+	background-color: white;
+	border-color:white;
+}
+.navbar-right .dropdown-menu{
+	left:0;
+}
+.dropdown-menu{
+	text-align: center;
+	min-width: 10%;
+}
+.nome-site{
+	font-family: "Heutica Neue", Times, serif;
+	float:right;
+	color: white;
+	margin: auto;
+	padding-right: 20%;
+}
+
+#form-cadastro{
+	text-align: center;
+	margin-top: 2%;
+	
+}
+h2{
+	color: #003300;
+	text-align: center;
+	margin-top: 2%;
+}
+.input{
+	width: 30%;
+	height: 30px;
+	border-radius: 5px;
+	border-color: white;
+}
+
+h4{
+	font-family: "Heutica Neue", Times, serif;
+	font-size:20px;
+	text-align: center;
+	margin-left: 30%;
+	margin-right: 30%;
+	margin-top: 3%;
+	padding-bottom: 5%;
+	color: #003300;
+}
+
+body{
+	background-color:  #d9f2e5;
+}
+#footer{
+	margin-top:10%;
+	background:url("/assets/fundo.jpg"); 
+
+	color:white;
+	text-align: center;
+	font-size:11px;
+	width:100%;
+	margin-bottom:0%;
+	
+}
+p{
+	margin-bottom:0px;
+}
+
+
+
+
