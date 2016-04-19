@@ -1,2 +1,29 @@
-<h1>StaticPages#equipamentos</h1>
-<p>Find me in app/views/static_pages/equipamentos.html.erb</p>
+<table id = "funds12" class="display table" cellspacing="0" width = "50%" >
+  <div class="panel body">
+<thead>
+  <tr>
+    <th>Nome</th>
+    <th>Email</th>
+    <th>Matricula</th>
+
+  </tr>
+</thead>
+<tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.nome %><td>
+      <td><%= user.email %></td>
+      <td><%= user.matricula %></td>
+    </tr>
+  <% end %>
+ </tbody>
+</table>
+</div>
+
+
+<script>
+  $(document).ready(function() {
+    $('#funds12').DataTable();
+        responsive: true
+  } );
+</script>

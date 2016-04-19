@@ -9,14 +9,6 @@ class StaticPagesController < ApplicationController
   end
 
   def equipamentos
-  end
-
-  def cadastro
-  end
-
-  def login
-  end
-
-  def usuario
+    @users = User.all
   end
 end

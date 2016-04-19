@@ -5,21 +5,19 @@
 	font-family: 'Roboto', sans-serif;
 }
 
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
 h1{
 	font-family: "Heutica Neue", Times, serif;
+	text-align:center;
+	color: #003300;
 }
 .icone{
 	background: image-url("padrao2.jpg");
-	
-}
-.btn-busca{
-	border-color: white;
-	padding: 0px 35px 0px 40px;
-
-}
-.btn-busca:hover{
-	background-color: white;
-	border-color:white;
 }
 .navbar-right .dropdown-menu{
 	left:0;
@@ -81,7 +79,42 @@ body{
 p{
 	margin-bottom:0px;
 }
+//pagina do usuario
+h5{
+
+	color: #003300;
+	text-align: center;
+	font-size:22px;
+}
+//cadastro
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+  
+}
 
 
+input {
+  height: auto !important;
+  
+}
+label{
+	color: #003300;
+}
 
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
 
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
