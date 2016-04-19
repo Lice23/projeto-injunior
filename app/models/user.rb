@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   presence: true, 
   length: { maximum: 255 }
   
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, 
   presence: true, 
   length: { maximum: 255 }, 
@@ -23,4 +23,9 @@ class User < ActiveRecord::Base
   presence: true,
   length: { is: 9 },
   uniqueness: true
+  
+  has_secure_password
+  validates :password,
+  presence: true, 
+  length: { minimum: 6 }
 end
