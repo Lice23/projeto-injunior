@@ -1,3 +1,5 @@
+
+<h1>Equipamentos</h1>
 <div class="panel-body">
 <table id="example" class="display table" cellspacing="0" width="100%">
     
@@ -481,13 +483,14 @@
         </tbody>
     </table>
 </div>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script>
+     <script src="assets/jquery.min.js"></script>
+     <script>
           $(document).ready(function() {
-            $('#example').DataTable(
+            $('#example').DataTable({
               responsive: true
             });
-          } );
+          });
         </script>
+        <script src ="assets/jquery.dataTables.min.js"></script>
        
-        <script src ="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+        
