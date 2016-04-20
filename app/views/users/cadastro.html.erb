@@ -6,21 +6,37 @@
       <%= render 'shared/error_messages' %>
       
       <%= f.label :nome %>
-      <br>
+      
       <%= f.text_field :nome, class: 'form-control' %>
-      <br>
+      
       <%= f.label :email %>
-      <br>
+      
       <%= f.email_field :email, class: 'form-control' %>
-      <br>
-      <%= f.label :password %>
-      <br>
+      
+      <%= f.label :matricula, "Matrícula" %>
+      
+      <%= f.text_field :matricula, class: 'form-control' %>
+      
+      <%= f.label :cpf, "CPF" %>
+      
+      <%= f.text_field :cpf, class: 'form-control' %>
+      
+      <%= f.label :telefone %>
+      
+      <%= f.text_field :telefone, class: 'form-control' %>
+      
+      <%= f.label :tipo %>
+      
+      <%= f.text_field :tipo, class: 'form-control' %>
+      
+      <%= f.label :password , "Senha" %>
+      
       <%= f.password_field :password, class: 'form-control' %>
-      <br>
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <br>
+      
+      <%= f.label :password_confirmation, "Confirmação de Senha" %>
+      
       <%= f.password_field :password_confirmation, class: 'form-control' %>
-      <br><br>
+      <br>
       <%= f.submit "Criar conta", class: "btn btn-primary" %>
       
     <% end %>

@@ -16,8 +16,8 @@ gem 'jquery-rails',            '2.3.0'
 gem 'jquery-ui-rails'
 gem 'turbolinks',              '2.3.0'
 gem 'jbuilder',                '2.2.3'
-gem 'sdoc',                    '0.4.0', group: :doc
 gem 'sprockets',               '~> 3.0'
+gem 'sdoc',                    '0.4.0', group: :doc
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 
 

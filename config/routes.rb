@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-
   root 'static_pages#home'
   get 'predio1'      =>  'static_pages#predio1'
   get 'predio2'      =>  'static_pages#predio2'
   get 'equipamentos' =>  'static_pages#equipamentos'
   get 'cadastro'     =>  'users#cadastro'
-  get 'login'        =>  'users#login'
   get 'usuario'      =>  'users#usuario'
+  get 'login'        =>  'sessions#new'
+  post   'login'     =>  'sessions#create'
+  delete 'logout'    =>  'sessions#destroy'
   resources :users
   
 
