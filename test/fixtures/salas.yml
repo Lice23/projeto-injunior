@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  string: MyString
+  predio: 
+  cont_proj: false
+  disp: false
+
+two:
+  nome: MyString
+  string: MyString
+  predio: 
+  cont_proj: false
+  disp: false

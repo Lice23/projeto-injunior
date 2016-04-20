@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :usuarios]
   before_action :correct_user,   only: [:edit, :update]
-  before_action :admin_user,     only: :destroy
+  before_action :admin_user,     only: [:destroy, :usuarios]
   
   def login
   end
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
   
   def usuarios
-    @user = User.all
+    @users = User.all
   end
   
   def cadastro

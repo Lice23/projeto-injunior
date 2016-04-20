@@ -2365,7 +2365,9 @@ if (typeof jQuery === 'undefined') {
 $(document).ready(function() {
     $('#example').DataTable( {
       responsive: true
+
     } );
+  
 } );
 $('.datatable').DataTable({
   // ajax: ...,
