@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Equipamento:</strong>
+  <%= @reserva_equipamento.equipamento_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @reserva_equipamento.user_id %>
+</p>
+
+<p>
+  <strong>Data ini equip:</strong>
+  <%= @reserva_equipamento.data_ini_equip %>
+</p>
+
+<p>
+  <strong>Data fin equip:</strong>
+  <%= @reserva_equipamento.data_fin_equip %>
+</p>
+
+<%= link_to 'Edit', edit_reserva_equipamento_path(@reserva_equipamento) %> |
+<%= link_to 'Back', reserva_equipamentos_path %>

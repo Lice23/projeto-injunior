@@ -1,0 +1,35 @@
+<%= form_for(@sala) do |f| %>
+  <% if @sala.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sala.errors.count, "error") %> prohibited this sala from being saved:</h2>
+
+      <ul>
+      <% @sala.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Nome %><br>
+    <%= f.text_field :nome, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :Prédio %><br>
+    <%= f.text_field :predio , class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :Sala_possui_projetor: %>
+    <%= f.check_box :cont_proj , class: 'checkbox' %>
+  </div>
+  <div class="field">
+    <%= f.label :Sala_esta_disponivel: %>
+    <%= f.check_box :disp , class:'checkbox'%>
+  </div>
+  <br>
+  <div class="actions ">
+    <br><br>
+     <%= f.submit "Adicionar Sala", class: "btn btn-primary" %>
+  </div>
+<% end %>

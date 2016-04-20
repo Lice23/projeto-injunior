@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Reserva Salas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sala</th>
+      <th>User</th>
+      <th>Data ini sala</th>
+      <th>Data fin sala</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reserva_salas.each do |reserva_sala| %>
+      <tr>
+        <td><%= reserva_sala.sala_id %></td>
+        <td><%= reserva_sala.user_id %></td>
+        <td><%= reserva_sala.data_ini_sala %></td>
+        <td><%= reserva_sala.data_fin_sala %></td>
+        <td><%= link_to 'Show', reserva_sala %></td>
+        <td><%= link_to 'Edit', edit_reserva_sala_path(reserva_sala) %></td>
+        <td><%= link_to 'Destroy', reserva_sala, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reserva sala', new_reserva_sala_path %>

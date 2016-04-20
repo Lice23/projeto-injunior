@@ -97,8 +97,11 @@ input {
   height: auto !important;
 }
 label{
+	margin-bottom: 10%;
 	color: #003300;
 }
+
+
 #error_explanation {
   color: red;
   ul {
@@ -124,6 +127,8 @@ select{
 	margin-bottom:0  ;
 	font-family:'Roboto', sans-serif;
 	color:white;
+	border-top-left-radius: 10px;
+	border-top-right-radius:10px;	
 }
 // Login
 .checkbox {
@@ -139,3 +144,18 @@ select{
   width: auto;
   margin-left: 0;
 }
+
+//salas
+.link_fim_pagina{
+	color: #003300;
+	font-size:30px;
+
+}
+.checkbox{
+	margin:auto;
+	right:47%;
+	
+}
+
+
+

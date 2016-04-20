@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="header-tabela">Salas</h1>
+<div class="panel-body responsive tabela">
+<table id="example" class=" display table dt-responsive no-wrap" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Predio</th>
+      <th>Projetores</th>
+      <th>Disponibilidade</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @salas.each do |sala| %>
+      <tr>
+        <td><%= sala.nome %></td>
+        <td><%= sala.predio %></td>
+        <td><%= sala.cont_proj %></td>
+        <td><%= sala.disp %></td>
+        <td><%= link_to 'Mostrar', sala %></td>
+        <td><%= link_to 'Editar', edit_sala_path(sala) %></td>
+        <td><%= link_to 'Remover', sala, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<%= link_to 'Adicionar Sala', new_sala_path, class:'link_fim_pagina' %>
+
+
+   <script src="assets/jquery.min.js"></script>
+     <script src ="assets/jquery.dataTables.min.js"></script>
+     <script src= "assets/bootstrap.js"></script>
+     <script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        
+        

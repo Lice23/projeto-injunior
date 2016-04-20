@@ -8,34 +8,35 @@
     <th>Email</th>
     <th>Telefone</th>
     <th>CPF</th>
-    <th>Vizualizar</th>
-    <th>Alterar</th>
+    <th>Apagar</th>
+    <th>Editar</th>
 
   </tr>
 </thead>
 <tbody>
   <% @users.each do |user| %>
     <tr>
-      <td><%= user.matricula %></td>
+      <td><%= user.nome %></td>
       <td><%= user.matricula %></td>
       <td><%= user.email %></td>
       <td><%= user.telefone %></td>
       <td><%= user.cpf %></td>
-      <td><%link_to'vizualizar', </td>
+      <td><%= link_to "Apagar", user, method: :delete, data: { confirm: "Tem certeza que deseja apagar este usuário?" } %></td>
+      <td><%= link_to "Editar", edit_user_path(user.id) %></td>
+      
     </tr>
   <% end %>
  </tbody>
 </table>
 </div>
   
-       
      <script src="assets/jquery.min.js"></script>
      <script src ="assets/jquery.dataTables.min.js"></script>
+     <script src= "assets/bootstrap.js"></script>
      <script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
      <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-     
-     
-     
-     
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        
+        
      
      

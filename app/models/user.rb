@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token
+  
+  has_many :reserva_sala, dependent: :destroy
+  
   validates :nome,  
   presence: true, 
   length: { maximum: 255 }

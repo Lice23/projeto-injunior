@@ -1,16 +1,20 @@
 Rails.application.routes.draw do
+  resources :reserva_equipamentos
+  resources :equipamentos
+  resources :reserva_salas
+  resources :salas
+  resources :users
+  
   root 'static_pages#home'
-  get 'predio1'      =>  'static_pages#predio1'
-  get 'predio2'      =>  'static_pages#predio2'
-  get 'equipamentos' =>  'static_pages#equipamentos'
+  get 'salas'        =>  'salas'
+  get 'reserva_salas'=>  'reserva_salas'
+  get 'equipamentos' =>  'equipamentos'
   get 'cadastro'     =>  'users#cadastro'
   get 'usuario'      =>  'users#usuario'
   get 'usuarios'     =>  'users#usuarios'
   get 'login'        =>  'sessions#new'
   post   'login'     =>  'sessions#create'
   delete 'logout'    =>  'sessions#destroy'
-  resources :users
-  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sala_id: 1
+  user_id: 1
+  data_ini_sala: 2016-04-20 18:03:18
+  data_fin_sala: 2016-04-20 18:03:18
+
+two:
+  sala_id: 1
+  user_id: 1
+  data_ini_sala: 2016-04-20 18:03:18
+  data_fin_sala: 2016-04-20 18:03:18

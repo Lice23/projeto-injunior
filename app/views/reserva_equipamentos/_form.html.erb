@@ -1,0 +1,33 @@
+<%= form_for(@reserva_equipamento) do |f| %>
+  <% if @reserva_equipamento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reserva_equipamento.errors.count, "error") %> prohibited this reserva_equipamento from being saved:</h2>
+
+      <ul>
+      <% @reserva_equipamento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :equipamento_id %><br>
+    <%= f.number_field :equipamento_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :data_ini_equip %><br>
+    <%= f.datetime_select :data_ini_equip %>
+  </div>
+  <div class="field">
+    <%= f.label :data_fin_equip %><br>
+    <%= f.datetime_select :data_fin_equip %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

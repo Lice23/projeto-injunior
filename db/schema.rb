@@ -11,7 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420151723) do
+ActiveRecord::Schema.define(version: 20160420191418) do
+
+  create_table "equipamentos", force: :cascade do |t|
+    t.string   "desc"
+    t.boolean  "disp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reserva_salas", force: :cascade do |t|
+    t.integer  "sala_id"
+    t.integer  "user_id"
+    t.datetime "data_ini_sala"
+    t.datetime "data_fin_sala"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "salas", force: :cascade do |t|
+    t.string   "nome"
+    t.integer  "predio"
+    t.boolean  "cont_proj"
+    t.boolean  "disp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.text     "nome"

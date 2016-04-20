@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sala:</strong>
+  <%= @reserva_sala.sala_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @reserva_sala.user_id %>
+</p>
+
+<p>
+  <strong>Data ini sala:</strong>
+  <%= @reserva_sala.data_ini_sala %>
+</p>
+
+<p>
+  <strong>Data fin sala:</strong>
+  <%= @reserva_sala.data_fin_sala %>
+</p>
+
+<%= link_to 'Edit', edit_reserva_sala_path(@reserva_sala) %> |
+<%= link_to 'Back', reserva_salas_path %>
