@@ -37,8 +37,13 @@
           <li><%= link_to "Equipamentos",equipamentos_path%></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+          <% if logged_in? %>
+          <li><%= link_to "Usuário", current_user %></li>
+          <li><%= link_to "Sair", logout_path, method: "delete" %></li>
+          <% else %>
           <li><%= link_to "Login", login_path %></li>
           <li><%= link_to "Cadastro", cadastro_path %></li>
+          <% end %>
         </ul>
 
 
@@ -46,19 +51,15 @@
       </div><!-- /.container-fluid -->
     </nav>
   </div>
-  
   <div class="container">
     <%= yield %>
   </div>
-  
   <footer id = "footer">
       <p><br><br> </p>
   </footer>
 
      
-        <script src="assets/bootstrap.min.js"></script>
-        
+  <script src="assets/bootstrap.min.js"></script>
   
-
 </body>
 </html>
