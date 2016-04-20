@@ -20,6 +20,7 @@ gem 'sprockets',               '~> 3.0'
 gem 'sdoc',                    '0.4.0', group: :doc
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'jquery-turbolinks'
+gem 'turbolinks'
 
 
 group :development, :test do
