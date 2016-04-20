@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Reserva Equipamentos</h1>
-
-<table>
+<h1 class="header-tabela">Reserva de Equipamentos</h1>
+<div class="panel-body responsive tabela">
+<table id="example" class=" display table dt-responsive no-wrap" cellspacing="0" width="100%">
   <thead>
     <tr>
       <th>Equipamento</th>
-      <th>User</th>
-      <th>Data ini equip</th>
-      <th>Data fin equip</th>
+      <th>Usuário</th>
+      <th>Data início do empréstimo</th>
+      <th>Data do fim do empréstimo</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,18 +16,19 @@
   <tbody>
     <% @reserva_equipamentos.each do |reserva_equipamento| %>
       <tr>
-        <td><%= reserva_equipamento.equipamento_id %></td>
-        <td><%= reserva_equipamento.user_id %></td>
+        <td><%= reserva_equipamento.equipamento.desc %></td>
+        <td><%= reserva_equipamento.user.nome %></td>
         <td><%= reserva_equipamento.data_ini_equip %></td>
         <td><%= reserva_equipamento.data_fin_equip %></td>
-        <td><%= link_to 'Show', reserva_equipamento %></td>
-        <td><%= link_to 'Edit', edit_reserva_equipamento_path(reserva_equipamento) %></td>
-        <td><%= link_to 'Destroy', reserva_equipamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', reserva_equipamento %></td>
+        <td><%= link_to 'Editar', edit_reserva_equipamento_path(reserva_equipamento) %></td>
+        <td><%= link_to 'Remover', reserva_equipamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
-<%= link_to 'New Reserva equipamento', new_reserva_equipamento_path %>
+<%= link_to 'Reserve outro equipamento', new_reserva_equipamento_path %>
+ 

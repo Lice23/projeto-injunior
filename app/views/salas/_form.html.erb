@@ -1,7 +1,7 @@
 <%= form_for(@sala) do |f| %>
   <% if @sala.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@sala.errors.count, "error") %> prohibited this sala from being saved:</h2>
+      <h2><%= pluralize(@sala.errors.count, "error") %> erros impediram essa sala de ser salvos:</h2>
 
       <ul>
       <% @sala.errors.full_messages.each do |message| %>
@@ -16,19 +16,18 @@
     <%= f.text_field :nome, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :Prédio %><br>
+    <%= f.label :predio,"Prédio:" %><br>
     <%= f.text_field :predio , class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :Sala_possui_projetor: %>
+    <%= f.label :cont_proj,'A sala possui projetor:' %><br>
     <%= f.check_box :cont_proj , class: 'checkbox' %>
   </div>
   <div class="field">
-    <%= f.label :Sala_esta_disponivel: %>
-    <%= f.check_box :disp , class:'checkbox'%>
+    <%= f.label :disp,'A sala está disponível:' %><br>
+    <%= f.check_box :disp , class:'checkbox' %>
   </div>
-  <br>
-  <div class="actions ">
+  <div class="actions">
     <br><br>
      <%= f.submit "Adicionar Sala", class: "btn btn-primary" %>
   </div>

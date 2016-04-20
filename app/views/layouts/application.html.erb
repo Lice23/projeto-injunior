@@ -29,10 +29,13 @@
         <ul class="nav navbar-nav">
           <li><%= link_to "Salas", salas_path%></a></li>
           <% if logged_in? %>
-          <li><%= link_to "Reserva de Salas", reserva_salas_path%></a></li>
+            <li><%= link_to "Reserva de Salas", reserva_salas_path%></a></li>
           <% end %>
           <li><%= link_to "Equipamentos", equipamentos_path%></a></li>
           <% if logged_in? %>
+          <% if logged_in? %>
+            <li><%= link_to "Reserva de Equipamentos", reserva_equipamentos_path%></a></li>
+          <% end %>
             <% if current_user.gerente? && !current_user?(@user) %>
               <li><%= link_to "Usuários", usuarios_path%></a></li>
             <% end %>
@@ -67,6 +70,15 @@
 
      
   <script src="assets/bootstrap.min.js"></script>
+   <script src="assets/jquery.min.js"></script>
+  <script src ="assets/jquery.dataTables.min.js"></script>
+  <script src= "assets/bootstrap.js"></script> 
+  <script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        
+
   
 </body>
+
 </html>

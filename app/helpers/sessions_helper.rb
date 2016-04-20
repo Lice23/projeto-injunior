@@ -31,6 +31,17 @@ module SessionsHelper
     !current_user.nil?
   end
   
+  def humanize_boolean(boolean)
+    if boolean
+      return "Sim"
+    end
+    return "Não"
+  end
+  
+  def admin_user(user)
+    redirect_to(root_url) unless current_user.gerente?
+  end
+  
   # Forgets a persistent session.
   def forget(user)
     user.forget

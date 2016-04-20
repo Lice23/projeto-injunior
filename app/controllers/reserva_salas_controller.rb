@@ -1,5 +1,9 @@
 class ReservaSalasController < ApplicationController
   before_action :set_reserva_sala, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user,   only: [:show, :index, :create]
+  before_action :correct_user,     only: [:edit, :update]
+  before_action :admin_user,       only: [:destroy]
+  
 
   # GET /reserva_salas
   # GET /reserva_salas.json
@@ -64,6 +68,25 @@ class ReservaSalasController < ApplicationController
   end
 
   private
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+    
+     # Confirms the correct user.
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user.gerente? || current_user?(@user)
+    end
+    
+    # Confirms an admin user.
+    def admin_user
+      redirect_to(root_url) unless current_user.gerente?
+    end
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_reserva_sala
       @reserva_sala = ReservaSala.find(params[:id])

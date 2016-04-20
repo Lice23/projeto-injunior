@@ -18,11 +18,15 @@
       <tr>
         <td><%= sala.nome %></td>
         <td><%= sala.predio %></td>
-        <td><%= sala.cont_proj %></td>
-        <td><%= sala.disp %></td>
+        <td><%= humanize_boolean(sala.cont_proj) %></td>
+        <td><%= humanize_boolean(sala.disp) %></td>
         <td><%= link_to 'Mostrar', sala %></td>
-        <td><%= link_to 'Editar', edit_sala_path(sala) %></td>
-        <td><%= link_to 'Remover', sala, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if logged_in? %>
+          <% if current_user.gerente? && !current_user?(@user) %>
+            <td><%= link_to 'Editar', edit_sala_path(sala) %></td>
+            <td><%= link_to 'Remover', sala, method: :delete, data: { confirm: 'Tem certeza que gostaria de remover essa sala?' } %></td>
+          <% end %>  
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -30,14 +34,13 @@
 </div>
 <br>
 
-<%= link_to 'Adicionar Sala', new_sala_path, class:'link_fim_pagina' %>
+<% if logged_in? %>
+  <% if current_user.gerente? && !current_user?(@user) %>
+    <%= link_to 'Adicionar Sala', new_sala_path, class:'link_fim_pagina' %><br>
+    <%= link_to 'Marcar Horário', new_reserva_sala_path, class:'link_fim_pagina' %>
+  <% end %>  
+<% end %>
 
 
-   <script src="assets/jquery.min.js"></script>
-     <script src ="assets/jquery.dataTables.min.js"></script>
-     <script src= "assets/bootstrap.js"></script>
-     <script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
-     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-        
-        
+
+

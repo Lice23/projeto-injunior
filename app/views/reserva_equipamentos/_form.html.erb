@@ -13,21 +13,21 @@
 
   <div class="field">
     <%= f.label :equipamento_id %><br>
-    <%= f.number_field :equipamento_id %>
+    <%= f.number_field :equipamento_id ,class:'form-control'%>
   </div>
   <div class="field">
     <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.number_field :user_id ,class:'form-control' %>
   </div>
   <div class="field">
     <%= f.label :data_ini_equip %><br>
-    <%= f.datetime_select :data_ini_equip %>
+    <%= f.datetime_select :data_ini_equip ,class:'form-control'%>
   </div>
   <div class="field">
     <%= f.label :data_fin_equip %><br>
-    <%= f.datetime_select :data_fin_equip %>
+    <%= f.datetime_select :data_fin_equip ,class:'form-control' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'reservar', class:'btn btn-primary' %>
   </div>
 <% end %>

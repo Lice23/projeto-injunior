@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Equipamentos</h1>
-
-<table>
+<h1 class="header-tabela">Equipamentos</h1>
+<div class="panel-body responsive tabela">
+<table id="example" class=" display table dt-responsive no-wrap" cellspacing="0" width="100%">
   <thead>
     <tr>
       <th>Desc</th>
@@ -15,15 +15,23 @@
     <% @equipamentos.each do |equipamento| %>
       <tr>
         <td><%= equipamento.desc %></td>
-        <td><%= equipamento.disp %></td>
-        <td><%= link_to 'Show', equipamento %></td>
-        <td><%= link_to 'Edit', edit_equipamento_path(equipamento) %></td>
-        <td><%= link_to 'Destroy', equipamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= humanize_boolean(equipamento.disp) %></td>
+        <td><%= link_to 'Mostrar', equipamento %></td>
+        <% if logged_in? %>
+          <% if current_user.gerente? && !current_user?(@user) %>
+            <td><%= link_to 'Editar', edit_sala_path(sala) %></td>
+            <td><%= link_to 'Remover', sala, method: :delete, data: { confirm: 'Tem certeza que gostaria de remover essa sala?' } %></td>
+          <% end %>  
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
-
-<%= link_to 'New Equipamento', new_equipamento_path %>
+<% if logged_in? %>
+  <% if current_user.gerente? && !current_user?(@user) %>
+    <%= link_to 'Novo Equipamento', new_equipamento_path %><br>
+    <%= link_to 'Marcar Horário', new_reserva_equipamento_path %>
+  <% end %>  
+<% end %>

@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Reserva Salas</h1>
-
-<table>
+<h1 class="header-tabela">Reserva de Salas</h1>
+<div class="panel-body responsive tabela">
+<table id="example" class=" display table dt-responsive no-wrap" cellspacing="0" width="100%">
   <thead>
     <tr>
       <th>Sala</th>
-      <th>User</th>
-      <th>Data ini sala</th>
-      <th>Data fin sala</th>
+      <th>Usuário</th>
+      <th>Início da Reserva</th>
+      <th>Fim da Reserva</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,8 +16,8 @@
   <tbody>
     <% @reserva_salas.each do |reserva_sala| %>
       <tr>
-        <td><%= reserva_sala.sala_id %></td>
-        <td><%= reserva_sala.user_id %></td>
+        <td><%= reserva_sala.sala.nome %></td>
+        <td><%= reserva_sala.user.nome %></td>
         <td><%= reserva_sala.data_ini_sala %></td>
         <td><%= reserva_sala.data_fin_sala %></td>
         <td><%= link_to 'Show', reserva_sala %></td>
@@ -27,7 +27,7 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
-<%= link_to 'New Reserva sala', new_reserva_sala_path %>
+<%= link_to 'Fazer nova reserva', new_reserva_sala_path %>
