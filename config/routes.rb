@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'equipamentos' =>  'static_pages#equipamentos'
   get 'cadastro'     =>  'users#cadastro'
   get 'usuario'      =>  'users#usuario'
+  get 'usuarios'     =>  'users#usuarios'
   get 'login'        =>  'sessions#new'
   post   'login'     =>  'sessions#create'
   delete 'logout'    =>  'sessions#destroy'

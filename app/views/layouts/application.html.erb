@@ -35,6 +35,9 @@
             </ul>
           </li>
           <li><%= link_to "Equipamentos",equipamentos_path%></a></li>
+          <% if current_user.gerente? && !current_user?(@user) %>
+            <li><%= link_to "Usuários",usuarios_path%></a></li>
+          <% end %>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>

@@ -20,8 +20,12 @@
       <%= f.label :telefone %>
       <%= f.number_field :telefone, class: 'form-control' %>
 
-      <%= f.label :tipo %>
-      <%= f.text_field :tipo, class: 'form-control' %>
+      <%= f.label :gerente, "Tipo de Usuário" %>
+      <%= f.select(:gerente) do %>
+        <% [['Professor/Assistente', false], ['Gerente', true]].each do |c| -%>
+          <%= content_tag(:option, c.first, value: c.last) %>
+        <% end %>
+      <% end %>
 
       <%= f.label :password , "Senha" %>
       <%= f.password_field :password, class: 'form-control' %>
