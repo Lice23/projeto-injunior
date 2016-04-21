@@ -7,8 +7,6 @@ class ReservaSala < ActiveRecord::Base
     
     validate :fin_date_cannot_smaller_than_ini
     
-    validate :horario_nao_bate
-    
     def ini_date_cannot_be_in_the_past
       if data_ini_sala.present? && data_ini_sala < Date.today
         errors.add(:data_ini_sala, "não pode estar no passado.")
@@ -20,8 +18,5 @@ class ReservaSala < ActiveRecord::Base
         errors.add(:data_fin_sala, "não pode ser antes do início.")
       end
     end
-    
-    def horario_nao_bate
-      puts(ReservaSala.all)
-    end
+  
 end

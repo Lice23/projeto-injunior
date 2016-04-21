@@ -5,7 +5,6 @@ class ReservaEquipamento < ActiveRecord::Base
     validate :ini_date_cannot_be_in_the_past
     
     validate :fin_date_cannot_smaller_than_ini
-    
 
     def ini_date_cannot_be_in_the_past
       if data_ini_equip.present? && data_ini_equip < Date.today

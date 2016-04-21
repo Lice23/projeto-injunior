@@ -1,6 +1,6 @@
 class ReservaSalasController < ApplicationController
-  before_action :set_reserva_sala, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_user,   only: [:show, :index, :create]
+  before_action :set_reserva_sala, only: [:show, :create, :edit, :update, :destroy]
+  before_action :logged_in_user,   only: [:show, :index,]
   before_action :correct_user,     only: [:edit, :update]
   before_action :admin_user,       only: [:destroy]
   
@@ -35,14 +35,15 @@ class ReservaSalasController < ApplicationController
   # POST /reserva_salas.json
   def create
     @reserva_sala = ReservaSala.new(reserva_sala_params)
-
-    respond_to do |format|
-      if @reserva_sala.save
-        format.html { redirect_to @reserva_sala, notice: 'Reserva sala was successfully created.' }
-        format.json { render :show, status: :created, location: @reserva_sala }
-      else
-        format.html { render :new }
-        format.json { render json: @reserva_sala.errors, status: :unprocessable_entity }
+    if nao_bate(@reserva_sala.data_ini_sala, @reserva_sala.data_fin_sala)
+      respond_to do |format|
+        if @reserva_sala.save
+          format.html { redirect_to @reserva_sala, notice: 'Reserva sala was successfully created.' }
+          format.json { render :show, status: :created, location: @reserva_sala }
+        else
+          format.html { render :new }
+          format.json { render json: @reserva_sala.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -95,6 +96,7 @@ class ReservaSalasController < ApplicationController
     def set_reserva_sala
       @reserva_sala = ReservaSala.find(params[:id])
     end
+    
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reserva_sala_params

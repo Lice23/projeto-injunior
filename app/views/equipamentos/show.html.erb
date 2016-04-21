@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h3 class='mostra'>
-  Descrição: 
+  <strong>Descrição:</strong> 
   <%= @equipamento.desc %>
   <br>
-  Disponível: 
-  <%= @equipamento.disp %>
+  <strong>Disponível:</strong> 
+  <%= humanize_boolean(@equipamento.disp) %>
 </h3>
 
 <%= link_to 'Editar', edit_equipamento_path(@equipamento) ,class:'link_fim_pagina'%> |

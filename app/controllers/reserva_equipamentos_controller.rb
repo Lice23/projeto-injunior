@@ -28,18 +28,34 @@ class ReservaEquipamentosController < ApplicationController
   # POST /reserva_equipamentos.json
   def create
     @reserva_equipamento = ReservaEquipamento.new(reserva_equipamento_params)
-    
       respond_to do |format|
-        if @reserva_equipamento.save
-          format.html { redirect_to @reserva_equipamento, notice: 'Reserva equipamento was successfully created.' }
-          format.json { render :show, status: :created, location: @reserva_equipamento }
-        else
-          format.html { render :new }
-          format.json { render json: @reserva_equipamento.errors, status: :unprocessable_entity }
+        puts('Teste')
+        puts(reserva_equipamento_params)
+        if @reserva_equipamento.fixo
+          puts('TesteFixo')
+          while @reserva_equipamento.data_fin_equip != @reserva_equipamento.data_fin_equip.advance(months: 4)
+            if @reserva_equipamento.save
+              format.html { redirect_to @reserva_equipamento, notice: 'Reserva equipamento was successfully created.' }
+              format.json { render :show, status: :created, location: @reserva_equipamento }
+            else
+              format.html { render :new }
+              format.json { render json: @reserva_equipamento.errors, status: :unprocessable_entity }
+            @reserva_equipamento.data_ini_equip.advance(days:7)
+            @reserva_equipamento.data_fin_equip.advance(days:7)
+            end
+          end
+        elsif
+          if @reserva_equipamento.save
+            format.html { redirect_to @reserva_equipamento, notice: 'Reserva equipamento was successfully created.' }
+            format.json { render :show, status: :created, location: @reserva_equipamento }
+          else
+            format.html { render :new }
+            format.json { render json: @reserva_equipamento.errors, status: :unprocessable_entity }
+          end
         end
-
       end
   end
+
 
   # PATCH/PUT /reserva_equipamentos/1
   # PATCH/PUT /reserva_equipamentos/1.json
@@ -95,6 +111,6 @@ class ReservaEquipamentosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reserva_equipamento_params
-      params.require(:reserva_equipamento).permit(:equipamento_id, :user_id, :data_ini_equip, :data_fin_equip)
+      params.require(:reserva_equipamento).permit(:equipamento_id, :user_id, :data_ini_equip, :data_fin_equip, :fixo)
     end
 end

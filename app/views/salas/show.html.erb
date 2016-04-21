@@ -1,23 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<p class='mostra'>
   <strong>Nome:</strong>
   <%= @sala.nome %>
 </p>
 
-<p>
-  <strong>Predio:</strong>
+<p class='mostra'>
+  <strong>Prédio:</strong>
   <%= @sala.predio %>
 </p>
 
-<p>
-  <strong>Cont proj:</strong>
-  <%= @sala.cont_proj %>
+<p class='mostra'>
+  <strong>Contém projetor:</strong>
+  <%= humanize_boolean(@sala.cont_proj) %>
 </p>
 
-<p>
-  <strong>Disp:</strong>
-  <%= @sala.disp %>
+<p class='mostra'>
+  <strong>Disponibilidade:</strong>
+  <%=humanize_boolean(@sala.disp )%>
 </p>
 
 <%= link_to 'Ver reserva', edit_sala_path(@sala) ,class:'link_fim_pagina'%> |

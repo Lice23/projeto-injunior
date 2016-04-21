@@ -1,24 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<h3>
-Sala:
+<p class="mostra">
+<strong>Sala:</strong>
   <%= @reserva_sala.sala_id %>
-</h3>
+</p>
 
-<p>
+<p class='mostra'>
   <strong>Usuário:</strong>
   <%= @reserva_sala.user_id %>
 </p>
 
-<p>
+<p class='mostra'>
   <strong>Data de início de reserva de sala:</strong>
   <%= @reserva_sala.data_ini_sala %>
 </p>
 
-<p>
+<p class='mostra'>
   <strong>Data de fim de reserva de sala:</strong>
   <%= @reserva_sala.data_fin_sala %>
 </p>
 
-<%= link_to 'Editar', edit_reserva_sala_path(@reserva_sala) ,class:'link_fim_pagina'%> |
-<%= link_to 'Voltar', reserva_salas_path ,class:'link_fim_pagina'%>
+<%= link_to 'Editar ', edit_reserva_sala_path(@reserva_sala) ,class:'link_fim_pagina'%> |
+<%= link_to ' Voltar', reserva_salas_path ,class:'link_fim_pagina'%>

@@ -12,14 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :desc %><br>
-    <%= f.text_field :desc %>
+    <%= f.label :desc, "Descriçao:" %><br>
+    <%= f.text_field :desc , class:'control-form'%>
   </div>
   <div class="field">
-    <%= f.label :disp %><br>
-    <%= f.check_box :disp %>
+    <%= f.label :disp,"O equipamento está disponível:" %><br>
+    <%= f.check_box :disp , class:'checkbox checkbox1'%>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <br>
+    <%= f.submit 'Atualizar' ,class:'btn btn-primary'%>
   </div>
 <% end %>

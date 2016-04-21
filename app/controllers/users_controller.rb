@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:show, :edit, :update, :destroy, :usuarios]
+  before_action :logged_in_user, only: [:show, :edit, :update, :destroy, :usuarios, :cadastro]
   before_action :correct_user,   only: [:edit, :update]
-  before_action :admin_user,     only: [:destroy, :usuarios]
+  before_action :admin_user,     only: [:destroy, :usuarios, :cadastro]
   
   def login
   end
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
   
   private
     def user_params
-        params.require(:user).permit(:nome, :email, :cpf, :telefone, :matricula, :password, :password_confirmation, :tipo)
+        params.require(:user).permit(:nome, :email, :cpf, :telefone, :matricula, :password, :password_confirmation, :gerente)
     end
   
   # Before filters
