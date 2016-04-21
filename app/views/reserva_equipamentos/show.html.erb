@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<p class="mostra">
   <strong>Equipamento:</strong>
   <%= @reserva_equipamento.equipamento_id %>
 </p>
@@ -20,5 +20,8 @@
   <%= @reserva_equipamento.data_fin_equip %>
 </p>
 
-<%= link_to 'Edit', edit_reserva_equipamento_path(@reserva_equipamento) %> |
-<%= link_to 'Back', reserva_equipamentos_path %>
+
+
+<%= link_to 'Editar', edit_reserva_equipamento_path(@reserva_equipamento) ,class:'link_fim_pagina' %> |
+<%= link_to 'Voltar', reserva_equipamentos_path ,class:'link_fim_pagina' %>
+

@@ -28,16 +28,17 @@ class ReservaEquipamentosController < ApplicationController
   # POST /reserva_equipamentos.json
   def create
     @reserva_equipamento = ReservaEquipamento.new(reserva_equipamento_params)
+    
+      respond_to do |format|
+        if @reserva_equipamento.save
+          format.html { redirect_to @reserva_equipamento, notice: 'Reserva equipamento was successfully created.' }
+          format.json { render :show, status: :created, location: @reserva_equipamento }
+        else
+          format.html { render :new }
+          format.json { render json: @reserva_equipamento.errors, status: :unprocessable_entity }
+        end
 
-    respond_to do |format|
-      if @reserva_equipamento.save
-        format.html { redirect_to @reserva_equipamento, notice: 'Reserva equipamento was successfully created.' }
-        format.json { render :show, status: :created, location: @reserva_equipamento }
-      else
-        format.html { render :new }
-        format.json { render json: @reserva_equipamento.errors, status: :unprocessable_entity }
       end
-    end
   end
 
   # PATCH/PUT /reserva_equipamentos/1
@@ -66,6 +67,8 @@ class ReservaEquipamentosController < ApplicationController
 
   private
   
+    
+  
     def logged_in_user
       unless logged_in?
         store_location
@@ -76,7 +79,7 @@ class ReservaEquipamentosController < ApplicationController
     
      # Confirms the correct user.
     def correct_user
-      @user = User.find(params[:id])
+      @user = User.find(current_user.id)
       redirect_to(root_url) unless current_user.gerente? || current_user?(@user)
     end
     

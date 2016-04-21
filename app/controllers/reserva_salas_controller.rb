@@ -21,6 +21,10 @@ class ReservaSalasController < ApplicationController
   # GET /reserva_salas/new
   def new
     @reserva_sala = ReservaSala.new
+    @salas = Sala.all
+    @users = User.all
+    session[:teste] = ReservaSala.all
+    @reserva_sala.teste = session[:teste]
   end
 
   # GET /reserva_salas/1/edit

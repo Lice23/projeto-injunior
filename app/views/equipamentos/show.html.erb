@@ -1,14 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Desc:</strong>
+<h3 class='mostra'>
+  Descrição: 
   <%= @equipamento.desc %>
-</p>
-
-<p>
-  <strong>Disp:</strong>
+  <br>
+  Disponível: 
   <%= @equipamento.disp %>
-</p>
+</h3>
 
-<%= link_to 'Edit', edit_equipamento_path(@equipamento) %> |
-<%= link_to 'Back', equipamentos_path %>
+<%= link_to 'Editar', edit_equipamento_path(@equipamento) ,class:'link_fim_pagina'%> |
+<%= link_to 'Voltar', equipamentos_path ,class:'link_fim_pagina'%>

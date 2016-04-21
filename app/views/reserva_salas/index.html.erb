@@ -20,9 +20,13 @@
         <td><%= reserva_sala.user.nome %></td>
         <td><%= reserva_sala.data_ini_sala %></td>
         <td><%= reserva_sala.data_fin_sala %></td>
-        <td><%= link_to 'Show', reserva_sala %></td>
-        <td><%= link_to 'Edit', edit_reserva_sala_path(reserva_sala) %></td>
-        <td><%= link_to 'Destroy', reserva_sala, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', reserva_sala %></td>
+        <% if current_user.gerente?  || current_user === reserva_sala.user  %>
+          <td><%= link_to 'Editar', edit_reserva_sala_path(reserva_sala) %></td>
+        <% end %>
+        <% if current_user.gerente? && !current_user?(@user) %>
+          <td><%= link_to 'Remover', reserva_sala, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +34,5 @@
 </div>
 <br>
 
-<%= link_to 'Fazer nova reserva', new_reserva_sala_path %>
+<%= link_to 'Reservar uma Sala', new_reserva_sala_path , class:'link_fim_pagina' %>
+ 

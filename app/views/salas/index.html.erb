@@ -5,9 +5,9 @@
 <table id="example" class=" display table dt-responsive no-wrap" cellspacing="0" width="100%">
   <thead>
     <tr>
-      <th>Nome</th>
-      <th>Predio</th>
-      <th>Projetores</th>
+      <th>Sala</th>
+      <th>Prédio</th>
+      <th>Projetor Fixo</th>
       <th>Disponibilidade</th>
       <th colspan="3"></th>
     </tr>
@@ -36,9 +36,9 @@
 
 <% if logged_in? %>
   <% if current_user.gerente? && !current_user?(@user) %>
-    <%= link_to 'Adicionar Sala', new_sala_path, class:'link_fim_pagina' %><br>
-    <%= link_to 'Marcar Horário', new_reserva_sala_path, class:'link_fim_pagina' %>
+  <col-md-6><%= link_to 'Adicionar Sala', new_sala_path, class:'link_fim_pagina' %><br></col-md-6>
   <% end %>  
+  <col-md-6><%= link_to 'Marcar Horário', new_reserva_sala_path, class:'link_fim_pagina' %></col-md-6>
 <% end %>
 
 

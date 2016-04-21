@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420192337) do
+ActiveRecord::Schema.define(version: 20160421000011) do
 
   create_table "equipamentos", force: :cascade do |t|
     t.string   "desc"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160420192337) do
     t.datetime "data_fin_equip"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.boolean  "fixo"
   end
 
   create_table "reserva_salas", force: :cascade do |t|

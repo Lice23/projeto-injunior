@@ -1,7 +1,7 @@
 <%= form_for(@reserva_equipamento) do |f| %>
   <% if @reserva_equipamento.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@reserva_equipamento.errors.count, "error") %> prohibited this reserva_equipamento from being saved:</h2>
+      <h2><%= pluralize(@reserva_equipamento.errors.count, "erro") %> impediram essa sala de ser salvos:</h2>
 
       <ul>
       <% @reserva_equipamento.errors.full_messages.each do |message| %>
@@ -12,22 +12,31 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :equipamento_id %><br>
+    <%= f.label :equipamento_id, "Equipamento:" %><br>
     <%= f.number_field :equipamento_id ,class:'form-control'%>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br>
+    <%= f.label :user_id, 'Nome do usuário:' %>
     <%= f.number_field :user_id ,class:'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :data_ini_equip %><br>
+    <%= f.label :data_ini_equip,'Data de início da reserva:' %>
     <%= f.datetime_select :data_ini_equip ,class:'form-control'%>
   </div>
   <div class="field">
-    <%= f.label :data_fin_equip %><br>
+    <%= f.label :data_fin_equip,'Data de fim da reserva:' %>
     <%= f.datetime_select :data_fin_equip ,class:'form-control' %>
   </div>
+  
+  <div class="field">
+    Repetir horário para o semestre?
+  <%= f.label :fixo, class: "checkbox inline" do %>
+  <%= f.check_box :fixo %>
+  <% end %>
+  </div>
+  <br>
+  
   <div class="actions">
-    <%= f.submit 'reservar', class:'btn btn-primary' %>
+    <%= f.submit 'Reservar', class:'btn btn-primary' %>
   </div>
 <% end %>

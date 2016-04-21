@@ -21,8 +21,12 @@
         <td><%= reserva_equipamento.data_ini_equip %></td>
         <td><%= reserva_equipamento.data_fin_equip %></td>
         <td><%= link_to 'Mostrar', reserva_equipamento %></td>
-        <td><%= link_to 'Editar', edit_reserva_equipamento_path(reserva_equipamento) %></td>
-        <td><%= link_to 'Remover', reserva_equipamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.gerente?  || current_user === reserva_equipamento.user  %>
+          <td><%= link_to 'Editar', edit_reserva_equipamento_path(reserva_equipamento) %></td>
+        <% end %>
+        <% if current_user.gerente? && !current_user?(@user) %>
+          <td><%= link_to 'Remover', reserva_equipamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -30,5 +34,7 @@
 </div>
 <br>
 
-<%= link_to 'Reserve outro equipamento', new_reserva_equipamento_path %>
+<%= link_to 'Reservar um Equipamento', new_reserva_equipamento_path , class:'link_fim_pagina'%>
+ 
+ 
  

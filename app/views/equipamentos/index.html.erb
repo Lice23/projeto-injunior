@@ -5,8 +5,8 @@
 <table id="example" class=" display table dt-responsive no-wrap" cellspacing="0" width="100%">
   <thead>
     <tr>
-      <th>Desc</th>
-      <th>Disp</th>
+      <th>Descrição</th>
+      <th>Disponibilidade</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,8 +19,8 @@
         <td><%= link_to 'Mostrar', equipamento %></td>
         <% if logged_in? %>
           <% if current_user.gerente? && !current_user?(@user) %>
-            <td><%= link_to 'Editar', edit_sala_path(sala) %></td>
-            <td><%= link_to 'Remover', sala, method: :delete, data: { confirm: 'Tem certeza que gostaria de remover essa sala?' } %></td>
+            <td><%= link_to 'Editar', edit_equipamento_path(equipamento) %></td>
+            <td><%= link_to 'Remover', equipamento, method: :delete, data: { confirm: 'Tem certeza que gostaria de remover esse equipamento?' } %></td>
           <% end %>  
         <% end %>
       </tr>
@@ -31,7 +31,7 @@
 <br>
 <% if logged_in? %>
   <% if current_user.gerente? && !current_user?(@user) %>
-    <%= link_to 'Novo Equipamento', new_equipamento_path %><br>
-    <%= link_to 'Marcar Horário', new_reserva_equipamento_path %>
+    <%= link_to 'Adicionar Equipamento', new_equipamento_path , class:'link_fim_pagina'%><br>
   <% end %>  
+    <%= link_to 'Marcar Horário', new_reserva_equipamento_path , class:'link_fim_pagina'%>
 <% end %>
